@@ -90,7 +90,7 @@ env:
 
 before_install:
   # Install CocoaPods
-  - gem install cocoapods --no-rdoc --no-ri --no-document --quiet
+  - gem install cocoapods --no-document --quiet
 
 script:
   # Set pipe fail flag
