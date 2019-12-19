@@ -25,7 +25,7 @@ low-level API along with an object-oriented API.
 ## Requirements
 
 - iOS 9+ / macOS 10.11+ / tvOS 9.0+ / watchOS 2.0+
-- Xcode 8.1 and Swift 3.0
+- Xcode 10.1 and Swift 4.2
 - Bitcode-enabled Xcode project for non-MacOS
 
 ## Usage
@@ -221,7 +221,7 @@ library under the [LGPL](https://github.com/zeromq/libzmq#license) license.
 [travis-badge]: https://travis-ci.org/azawawi/SwiftyZeroMQ.svg?branch=master
 [travis-url]: https://travis-ci.org/azawawi/SwiftyZeroMQ
 
-[swift-badge]: https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat
+[swift-badge]: https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat
 [swift-url]: https://swift.org
 
 [zeromq-badge]: https://img.shields.io/badge/ZeroMQ-4.2.1-blue.svg?style=flat
