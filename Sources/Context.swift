@@ -274,16 +274,21 @@ extension SwiftyZeroMQ {
             return try Int(getOption(ZMQ_SOCKET_LIMIT))
         }
 
-        /**
-            Hashable implementation
-        */
-        public var hashValue: Int {
-            if let hashValue = handle?.hashValue {
-                return hashValue
-            }
-            else {
-                return 0 // todo: not clear what this corresponds to...
-            }
+//        To be removed
+//        /**
+//            Hashable implementation
+//        */
+//        public var hashValue: Int {
+//            if let hashValue = handle?.hashValue {
+//                return hashValue
+//            }
+//            else {
+//                return 0 // todo: not clear what this corresponds to...
+//            }
+//        }
+        
+        public func hash(into hasher: inout Hasher) {
+            hasher.combine(handle?.hashValue)
         }
 
         /**

@@ -186,16 +186,21 @@ extension SwiftyZeroMQ {
             return String(data: data, encoding: String.Encoding.utf8)
         }
 
-        /**
-            Hashable implementation
-        */
-        public var hashValue: Int {
-            if let hashValue = handle?.hashValue {
-                return hashValue
-            }
-            else {
-                return 0 // todo: not clear what this corresponds to...
-            }
+//        To be removed
+//        /**
+//            Hashable implementation
+//        */
+//        public var hashValue: Int {
+//            if let hashValue = handle?.hashValue {
+//                return hashValue
+//            }
+//            else {
+//                return 0 // todo: not clear what this corresponds to...
+//            }
+//        }
+        
+        public func hash(into hasher: inout Hasher) {
+            hasher.combine(handle?.hashValue)
         }
 
         /**
@@ -437,9 +442,15 @@ extension SwiftyZeroMQ {
         private static func pointerTo<T>(_ value: T) -> UnsafeRawPointer {
             var mutableValue = value
             let data = Data(bytes: &mutableValue, count: MemoryLayout<T>.size)
-            return data.withUnsafeBytes { (u8ptr: UnsafePointer<UInt8>) in
+//            To be removed
+//            return data.withUnsafeBytes { (u8ptr: UnsafePointer<UInt8>) in
+//                return UnsafeRawPointer(u8ptr)
+//            }
+            return data.withUnsafeBytes({
+                let unsafeBufferPtr = $0.bindMemory(to: UInt8.self)
+                let u8ptr = unsafeBufferPtr.baseAddress!
                 return UnsafeRawPointer(u8ptr)
-            }
+            })
         }
 
         /**

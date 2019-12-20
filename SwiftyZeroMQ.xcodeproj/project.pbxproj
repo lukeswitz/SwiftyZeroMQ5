@@ -495,11 +495,11 @@
 			};
 			buildConfigurationList = 04D84E2D1DB637E800AD9652 /* Build configuration list for PBXProject "SwiftyZeroMQ" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
+				Base,
 			);
 			mainGroup = 04D84E291DB637E800AD9652;
 			productRefGroup = 04D84E341DB637E800AD9652 /* Products */;
