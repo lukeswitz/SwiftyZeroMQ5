@@ -4,8 +4,9 @@
 [![Swift][swift-badge]][swift-url]
 [![ZeroMQ][zeromq-badge]][zeromq-url]
 [![Platform][platform-badge]][platform-url]
+<!-- To be added
 [![Carthage][carthage-badge]][carthage-url]
-[![CocoaPods][cocoapods-badge]][cocoapods-url]
+[![CocoaPods][cocoapods-badge]][cocoapods-url] -->
 [![License][mit-badge]][mit-url]
 
 This library provides easy-to-use iOS, macOS, tvOS and watchOS
@@ -230,11 +231,12 @@ library under the [LGPL](https://github.com/zeromq/libzmq#license) license.
 [platform-badge]: https://img.shields.io/badge/Platforms-iOS%20|%20macOS%20|%20tvOS%20|%20watchOS-blue.svg?style=flat
 [platform-url]: http://cocoadocs.org/docsets/SwiftyZeroMQ
 
+<!-- To be added
 [carthage-badge]: https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat
 [carthage-url]: https://github.com/Carthage/Carthage
 
 [cocoapods-badge]: https://img.shields.io/cocoapods/v/SwiftyZeroMQ.svg
-[cocoapods-url]: https://cocoapods.org/?q=swiftyzeromq
+[cocoapods-url]: https://cocoapods.org/?q=swiftyzeromq -->
 
 [mit-badge]: https://img.shields.io/badge/License-MIT-blue.svg?style=flat
 [mit-url]: https://tldrlegal.com/license/mit-license
