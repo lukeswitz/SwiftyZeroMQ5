@@ -309,6 +309,20 @@ extension SwiftyZeroMQ {
         public func setMaxReconnectInterval(_ value: Int32) throws {
             try self.setIntegerSocketOption(ZMQ_RECONNECT_IVL_MAX, value)
         }
+        
+        /**
+         Set the timeout for send operation on the socket.
+        */
+        public func setSendTimeout(_ value: Int32) throws {
+          try self.setIntegerSocketOption(ZMQ_SNDTIMEO, value)
+        }
+        
+        /**
+           Set the timeout for receive operation on the socket.
+         */
+        public func setRecvTimeout(_ value: Int32) throws {
+            try self.setIntegerSocketOption(ZMQ_RCVTIMEO, value)
+        }
       
       /// Returns a public/private key tuple using zmq_curve_keypair
       ///
