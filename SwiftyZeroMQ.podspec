@@ -1,6 +1,6 @@
 
 Pod::Spec.new do |s|
-  s.name                  = "SwiftyZeroMQ"
+  s.name                  = "SwiftyZeroMQ5"
   s.version               = "1.2.1"
   s.summary               = "ZeroMQ Swift 5 Bindings for iOS, macOS, tvOS and watchOS."
   s.description           = <<-DESC
@@ -9,13 +9,13 @@ Pod::Spec.new do |s|
     bundled stable libzmq library. It provides ZeroMQ's low-level API along with
     an object-oriented API.
                                DESC
-  s.homepage              = "https://github.com/olehs/SwiftyZeroMQ"
+  s.homepage              = "https://github.com/olehs/SwiftyZeroMQ5"
   s.license               = "MIT"
   s.author                = {
     "Ahmad M. Zawawi" => "ahmad.zawawi@gmail.com"
   }
   s.source                = {
-    :git => "https://github.com/olehs/SwiftyZeroMQ.git",
+    :git => "https://github.com/olehs/SwiftyZeroMQ5.git",
     :tag => "#{s.version}"
   }
   s.ios.deployment_target      = "9.0"
