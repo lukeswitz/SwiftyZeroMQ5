@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name                  = "SwiftyZeroMQ5"
-  s.version               = "1.2.1"
+  s.version               = "1.2.2"
   s.summary               = "ZeroMQ Swift 5 Bindings for iOS, macOS, tvOS and watchOS."
   s.description           = <<-DESC
     This library provides easy-to-use iOS, macOS, tvOS and watchOS Swift
