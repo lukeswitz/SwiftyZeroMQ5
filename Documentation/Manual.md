@@ -30,7 +30,7 @@ documentation and examples in the sections below.
 * In your target's settings, please click on the **+** button under the
 **Embedded Binaries** section and add `SwiftyZeroMQ.framework`. In case it does
 not show up in the list, please close and reopen the project in Xcode.
-* Add `import SwiftyZeroMQ` in your code to test it.
+* Add `import SwiftyZeroMQ5` in your code to test it.
 * Happy hacking :)
 
 ### CocoaPods
@@ -72,7 +72,7 @@ dependency manager for Cocoa. Please follow these steps:
 
 - Add the following lines to your 'Cartfile':
 ```
-github "azawawi/SwiftyZeroMQ" ~> 1.0
+github "olehs/SwiftyZeroMQ5"
 ```
 
 - Build the `SwiftyZeroMQ.framework` with the following commands:
@@ -131,7 +131,7 @@ Library|Minimum OS version|CPU Architectures
 To import this module, please type:
 
 ```swift
-import SwiftyZeroMQ
+import SwiftyZeroMQ5
 ```
 
 ## Low-level API
