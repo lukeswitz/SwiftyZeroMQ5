@@ -42,7 +42,7 @@ for your Xcode projects.
 
 If you would like to try out the example iOS project, simply type:
 ```bash
-$ pod try SwiftyZeroMQ
+$ pod try SwiftyZeroMQ5
 ```
 
 #### Steps
@@ -52,7 +52,7 @@ Please follow these steps to add SwiftyZeroMQ to your project:
 - Add the following lines to your `Podfile`:
 ```ruby
 use_frameworks!
-pod 'SwiftyZeroMQ', '~> 1.0'
+pod 'SwiftyZeroMQ5'
 ```
 
 - Run the following command in the project root directory:
