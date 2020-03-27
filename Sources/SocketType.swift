@@ -89,6 +89,10 @@ extension SwiftyZeroMQ {
          */
         case dealer
         /**
+            Same as `.dealer`
+         */
+        case xrequest
+        /**
             A socket of type `.router` is an advanced socket type used for
             extending request/reply sockets. When receiving messages a `.router`
             socket shall prepend a message part containing the identity of the
@@ -116,6 +120,10 @@ extension SwiftyZeroMQ {
             application must include the delimiter part.
          */
         case router
+        /**
+         Same as `.router`
+         */
+        case xreply
 
         // Publish-subscribe pattern
         /**
@@ -245,7 +253,9 @@ extension SwiftyZeroMQ {
                 case .request:    return ZMQ_REQ
                 case .reply:      return ZMQ_REP
                 case .router:     return ZMQ_ROUTER
+                case .xreply:     return ZMQ_XREP
                 case .dealer:     return ZMQ_DEALER
+                case .xrequest:   return ZMQ_XREQ
 
                 // Publish-subscribe pattern
                 case .publish:    return ZMQ_PUB
