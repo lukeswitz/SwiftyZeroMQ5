@@ -17,18 +17,18 @@ extension SwiftyZeroMQ {
             self.rawValue = rawValue
         }
                 
-        static let connected           = SocketEvents(rawValue: ZMQ_EVENT_CONNECTED)
-        static let connectDelayed      = SocketEvents(rawValue: ZMQ_EVENT_CONNECT_DELAYED)
-        static let connectRetried      = SocketEvents(rawValue: ZMQ_EVENT_CONNECT_RETRIED)
-        static let listening           = SocketEvents(rawValue: ZMQ_EVENT_LISTENING)
-        static let bindFailed          = SocketEvents(rawValue: ZMQ_EVENT_BIND_FAILED)
-        static let accepted            = SocketEvents(rawValue: ZMQ_EVENT_ACCEPTED)
-        static let acceptFailed        = SocketEvents(rawValue: ZMQ_EVENT_ACCEPT_FAILED)
-        static let closed              = SocketEvents(rawValue: ZMQ_EVENT_CLOSED)
-        static let closeFailed         = SocketEvents(rawValue: ZMQ_EVENT_CLOSE_FAILED)
-        static let disconnected        = SocketEvents(rawValue: ZMQ_EVENT_DISCONNECTED)
-        static let monitorStopped      = SocketEvents(rawValue: ZMQ_EVENT_MONITOR_STOPPED)
-        static let all                 = SocketEvents(rawValue: ZMQ_EVENT_ALL)
+        public static let connected           = SocketEvents(rawValue: ZMQ_EVENT_CONNECTED)
+        public static let connectDelayed      = SocketEvents(rawValue: ZMQ_EVENT_CONNECT_DELAYED)
+        public static let connectRetried      = SocketEvents(rawValue: ZMQ_EVENT_CONNECT_RETRIED)
+        public static let listening           = SocketEvents(rawValue: ZMQ_EVENT_LISTENING)
+        public static let bindFailed          = SocketEvents(rawValue: ZMQ_EVENT_BIND_FAILED)
+        public static let accepted            = SocketEvents(rawValue: ZMQ_EVENT_ACCEPTED)
+        public static let acceptFailed        = SocketEvents(rawValue: ZMQ_EVENT_ACCEPT_FAILED)
+        public static let closed              = SocketEvents(rawValue: ZMQ_EVENT_CLOSED)
+        public static let closeFailed         = SocketEvents(rawValue: ZMQ_EVENT_CLOSE_FAILED)
+        public static let disconnected        = SocketEvents(rawValue: ZMQ_EVENT_DISCONNECTED)
+        public static let monitorStopped      = SocketEvents(rawValue: ZMQ_EVENT_MONITOR_STOPPED)
+        public static let all                 = SocketEvents(rawValue: ZMQ_EVENT_ALL)
     }
     
 }
