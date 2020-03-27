@@ -68,6 +68,16 @@ extension SwiftyZeroMQ {
         }
         
         /**
+         Disconnects an outgoing connection on the current socket
+         */
+        public func disconnect(_ endpoint : String) throws {
+            let result = zmq_disconnect(handle, endpoint)
+            if result == -1 {
+                throw ZeroMQError.last
+            }
+        }
+
+        /**
          Closes the current socket
          */
         public func close() throws {
