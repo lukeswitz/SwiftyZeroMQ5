@@ -247,6 +247,36 @@ extension SwiftyZeroMQ {
             This is a workaround to return dynamically loaded native `ZMQ_`
             constants
          */
+        public init(_ value: Int32) throws {
+            switch value {
+                // Request-reply pattern
+                case ZMQ_REQ:     self = .request; return;
+                case ZMQ_REP:     self = .reply; return;
+                case ZMQ_ROUTER:  self = .router; return;
+                case ZMQ_XREP:    self = .xreply; return;
+                case ZMQ_DEALER:  self = .dealer; return;
+                case ZMQ_XREQ:    self = .xrequest; return;
+
+                // Publish-subscribe pattern
+                case ZMQ_PUB:     self = .publish; return;
+                case ZMQ_SUB:     self = .subscribe; return;
+                case ZMQ_XPUB:    self = .xpublish; return;
+                case ZMQ_XSUB:    self = .xsubscribe; return;
+
+                // Pipeline pattern
+                case ZMQ_PUSH:    self = .push; return;
+                case ZMQ_PULL:    self = .pull; return;
+
+                // Exclusive pair pattern
+                case ZMQ_PAIR:    self = .pair; return;
+
+                // Native pattern
+                case ZMQ_STREAM:  self = .stream; return;
+                default:
+                    throw ZeroMQError(description: "Unknown socket type \(value)");
+            }
+        }
+
         public var rawValue: Int32 {
             switch self {
                 // Request-reply pattern
