@@ -76,7 +76,7 @@ extension SwiftyZeroMQ {
                 throw ZeroMQError.last
             }
         }
-
+        
         /**
          Closes the current socket
          */
@@ -501,20 +501,6 @@ extension SwiftyZeroMQ {
         }
         
         /**
-         Interface to set an option which takes a Swift String.
-         */
-        private func setStringOption(_ name: Int32, _ value: String?) throws {
-            let optValLen = (value != nil)
-                ? value!.count
-                : 0
-            let optval = (value != nil)
-                ? UnsafeRawPointer(value!)
-                : UnsafeRawPointer([UInt8]())
-            
-            try self.setOption(name, optval, optValLen)
-        }
-        
-        /**
          Generically set an option which is just a single value, such as an
          Int, Int64 or UInt64
          */
@@ -564,18 +550,18 @@ extension SwiftyZeroMQ {
          */
         private func getValueOption<T>(_ name: Int32) throws -> T {
             
-            let pointer = UnsafeMutablePointer<T>.allocate(capacity: 1)
-            defer {
-                pointer.deallocate()
-            }
-            
             var sz = MemoryLayout<T>.size
-            let optLen = UnsafeMutablePointer(&sz)
-            
-            if zmq_getsockopt(self.handle, name, pointer, optLen) < 0 {
-                throw SwiftyZeroMQ.ZeroMQError.last
+            return try withUnsafeMutablePointer(to: &sz) {
+                let pointer = UnsafeMutablePointer<T>.allocate(capacity: 1)
+                defer {
+                    pointer.deallocate()
+                }
+                
+                if zmq_getsockopt(self.handle, name, pointer, $0) < 0 {
+                    throw SwiftyZeroMQ.ZeroMQError.last
+                }
+                return pointer.move()
             }
-            return pointer.move()
         }
         
     }
