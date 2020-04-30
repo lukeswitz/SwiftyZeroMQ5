@@ -222,11 +222,19 @@ extension SwiftyZeroMQ {
             try self.setStringSocketOption(ZMQ_SUBSCRIBE, value)
         }
         
+        public func setSubscribe(data: Data) throws {
+            try self.setBufferOption(ZMQ_SUBSCRIBE, data)
+        }
+        
         /**
          Remove a filter associated with a ZMQ_SUB socket
          */
         public func setUnsubscribe(_ value: String?) throws {
             try self.setStringSocketOption(ZMQ_UNSUBSCRIBE, value)
+        }
+        
+        public func setUnsubscribe(data: Data) throws {
+            try self.setBufferOption(ZMQ_UNSUBSCRIBE, data)
         }
         
         /**
@@ -344,12 +352,34 @@ extension SwiftyZeroMQ {
         }
         
         /**
+         Sets ZMQ_ROUTER_HANDOVER
+         */
+        public func setRouterHandover(_ value: Bool) throws {
+            try self.setIntegerSocketOption(ZMQ_ROUTER_HANDOVER, value ? 1 : 0)
+        }
+        
+        /**
+         Sets ZMQ_CONNECT_ROUTING_ID
+         */
+        public func setRoutingId(_ value: String?) throws {
+            try self.setStringSocketOption(ZMQ_CONNECT_RID, value)
+        }
+        
+        public func setRoutingId(data: Data) throws {
+            try self.setBufferOption(ZMQ_CONNECT_RID, data)
+        }
+        
+        /**
          This option shall set the identity of the specified socket.
          Socket identity is used only by request/reply pattern. Namely, it can be used
          in tandem with ROUTER socket to route messages to the peer with specific identity.
          */
         public func setIdentity(_ value: String?) throws {
             try self.setStringSocketOption(ZMQ_IDENTITY, value)
+        }
+        
+        public func setIdentity(data: Data) throws {
+            try self.setBufferOption(ZMQ_IDENTITY, data)
         }
         
         /// Returns a public/private key tuple using zmq_curve_keypair
@@ -481,8 +511,12 @@ extension SwiftyZeroMQ {
             return try self.getValueOption(ZMQ_RCVTIMEO)
         }
         
-        public func getImmediate() throws -> UInt32 {
-            return try self.getValueOption(ZMQ_IMMEDIATE)
+        public func getImmediate() throws -> Bool {
+            return try self.getValueOption(ZMQ_IMMEDIATE) == 0 ? false : true
+        }
+        
+        public func getRouterHandover() throws -> Bool {
+            return try self.getValueOption(ZMQ_ROUTER_HANDOVER) == 0 ? false : true
         }
         
         public func getBacklog() throws -> UInt32 {
@@ -506,7 +540,16 @@ extension SwiftyZeroMQ {
          */
         private func setValueOption<T>(_ name: Int32, _ value: T) throws {
             let pointer = SwiftyZeroMQ.Socket.pointerTo(value)
-            try self.setOption(name, pointer, MemoryLayout<T>.size)
+            try setOption(name, pointer, MemoryLayout<T>.size)
+        }
+        
+        private func setBufferOption(_ name: Int32, _ buffer: Data) throws {
+            let pointer: UnsafeRawPointer = buffer.withUnsafeBytes({
+                let unsafeBufferPtr = $0.bindMemory(to: UInt8.self)
+                let u8ptr = unsafeBufferPtr.baseAddress!
+                return UnsafeRawPointer(u8ptr)
+            })
+            try setOption(name, pointer, buffer.count)
         }
         
         public func setIntegerSocketOption(_ option: Int32, _ value: Int32) throws {
