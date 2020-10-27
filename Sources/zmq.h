@@ -649,7 +649,7 @@ ZMQ_EXPORT void zmq_threadclose (void *thread_);
 /*  change at ANY time until declared stable.                                 */
 /******************************************************************************/
 
-#ifdef ZMQ_BUILD_DRAFT_API
+//#ifdef ZMQ_BUILD_DRAFT_API // ------- DONT COMMENT THIS OUT IF YOU DON'T WANT THE DRAFT API
 
 /*  DRAFT Socket types.                                                       */
 #define ZMQ_SERVER 12
@@ -775,7 +775,7 @@ ZMQ_EXPORT int zmq_socket_monitor_versioned (
   void *s_, const char *addr_, uint64_t events_, int event_version_, int type_);
 ZMQ_EXPORT int zmq_socket_monitor_pipes_stats (void *s);
 
-#endif // ZMQ_BUILD_DRAFT_API
+//#endif // ZMQ_BUILD_DRAFT_API ------- DONT COMMENT THIS OUT IF YOU DON'T WANT THE DRAFT API
 
 
 #undef ZMQ_EXPORT
