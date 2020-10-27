@@ -22,6 +22,7 @@ low-level API along with an object-oriented API.
 > provides a message queue, but unlike message-oriented middleware, a ZeroMQ
 > system can run without a dedicated message broker. The library's API is
 > designed to resemble that of Berkeley sockets.
+> WARNING: THIS VERISON USES DRAFT APIS SUCH AS ZMQ_DISH AND ZMQ_RADIO
 
 ## Requirements
 
