@@ -18,8 +18,9 @@ low-level API along with an object-oriented API.
 WARNING: THIS VERISON USES DRAFT APIS SUCH AS ZMQ_DISH AND ZMQ_RADIO
 Modified files include: 
 
-SocketTypes.swift,
-zmq.h
+* SocketTypes.swift,
+* zmq.h
+* Socket.swift
 
 ## What is ZeroMQ?
 
