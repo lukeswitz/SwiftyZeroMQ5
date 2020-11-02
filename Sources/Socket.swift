@@ -607,6 +607,22 @@ extension SwiftyZeroMQ {
             }
         }
         
+        // DRAFT SOCKET METHODS ---------
+        
+        public func joinGroup(_ group: String) throws{
+            let result = zmq_join(self.handle, group);
+            if result == -1 {
+                throw ZeroMQError.last;
+            }
+        }
+        
+        public func leaveGroup(_ group: String) throws{
+            let result = zmq_leave(self.handle, group);
+            if result == -1 {
+                throw ZeroMQError.last;
+            }
+        }
+        
     }
     
 }
