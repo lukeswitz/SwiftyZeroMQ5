@@ -15,12 +15,12 @@ Pod::Spec.new do |s|
     "Ahmad M. Zawawi" => "ahmad.zawawi@gmail.com"
   }
   s.source                = {
-    :git => "https://github.com/olehs/SwiftyZeroMQ5.git",
+    :git => "https://github.com/lukeswitz/SwiftyZeroMQ5.git",
     :tag => "#{s.version}"
   }
-  s.ios.deployment_target      = "9.0"
+  s.ios.deployment_target      = "12.0"
   s.osx.deployment_target      = "10.11"
-  s.tvos.deployment_target     = "9.0"
+  s.tvos.deployment_target     = "12.0"
   s.watchos.deployment_target  = "2.0"
   s.swift_version              = "5"
   s.libraries                  = "c++"
